@@ -153,13 +153,16 @@ table {
 /* --- Common Styles ---*/
 
 h1,
-h2,
 h3,
 h4,
 h5,
 h6 {
   font-family: "Marcellus";
   font-size: 16px;
+}
+h2 {
+  font-family: "Marcellus";
+  font-size: 20px;
 }
 
 p {
@@ -497,7 +500,7 @@ body {
   width: 100%;
   height: 100%;
 }
-.discord-footer{ 
+.discord-footer {
   vertical-align: middle;
 }
 .hero-verification {
@@ -509,9 +512,6 @@ body {
 }
 
 .hero {
-  background:
-    linear-gradient(to right, rgba(243, 243, 245, 0), rgba(243, 243, 245, 0)),
-    url(../svgs/drone_delivery.svg) no-repeat center center;
   background-size: contain;
   background-position: center;
   min-height: 800px;
@@ -520,7 +520,15 @@ body {
 .hero-content {
   max-width: 600px;
 }
-
+.hero-pro-background {
+  background: #fafafa;
+  background:
+    linear-gradient(to right, rgba(243, 243, 245, 0), rgba(243, 243, 245, 0)),
+    url(../backgrounds/pro.png) no-repeat left center;
+}
+.hero-pro {
+  background: #fafafa;
+}
 .hero-inner {
   padding: 150px 0 100px 0;
 }
