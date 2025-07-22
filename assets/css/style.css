@@ -497,7 +497,9 @@ body {
   width: 100%;
   height: 100%;
 }
-
+.discord-footer{ 
+  vertical-align: middle;
+}
 .hero-verification {
   background:
     linear-gradient(to right, rgba(243, 243, 245, 0), rgba(243, 243, 245, 0)),
