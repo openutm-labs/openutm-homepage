@@ -1303,7 +1303,7 @@ body {
   padding: 30px;
   max-width: 420px;
   background: #ffffff;
-  overflow: hidden;
+  /* overflow: removed - no scroller needed */
 }
 
 .rev_img {
@@ -1338,6 +1338,42 @@ body {
   font-weight: 400;
   line-height: 1.4;
   margin-bottom: 3px;
+}
+
+/* Bullet list styling for review section */
+.review-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.review-bullets li {
+  padding: 12px 0;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 12px;
+}
+
+.review-bullets li:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.review-bullets li strong {
+  /* display: inline-block; */
+  width: 0;
+  /* text-overflow handling for long text */
+  white-space: normal;
+  font-family: 'Marcellus', serif;
+  font-weight: 600;
+  color: #364655;
+  font-size: 18px;
+}
+
+.review-bullets li p {
+  font-size: 15px;
+  color: #787878;
+  margin: 6px 0 0 0;
+  line-height: 1.5;
 }
 
 /*-----------------------------------------------------------
@@ -2365,7 +2401,8 @@ ul#countdown li {
   }
 
   .yd_rev_bg .rev_block {
-    padding: 60px;
+    /* padding: 60px; */
+    padding: 10px;
   }
 
   .footer .footer-logo {
