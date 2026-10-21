@@ -2555,7 +2555,7 @@ ul#countdown li {
 
 .utc_calc .calc-card {
   background: #ffffff;
-  border-radius: 16px;
+  border-radius: 2px;
   padding: 40px 40px 30px 40px;
   box-shadow: 0 10px 40px rgba(15, 136, 254, 0.08);
   max-width: 1080px;
