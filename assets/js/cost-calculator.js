@@ -9,9 +9,9 @@
   /* Base prices per flight, in EUR (mid-range of each pricing band).
      Adjust these constants to change pricing. */
   var BASE_PRICES = {
-    vlos: 0.3, /* Simple VLOS */
-    evlos: 0.45, /* Specialized VLOS (EVLOS) */
-    bvlos: 0.625 /* Complex/BVLOS (enabled for future use) */
+    vlos: 0.2, /* Simple VLOS */
+    evlos: 0.35, /* Specialized VLOS (EVLOS) */
+    bvlos: 0.45 /* Complex/BVLOS (enabled for future use) */
   };
 
   var CURRENCY_KEY = "openutm_calc_currency";
