@@ -307,6 +307,81 @@
           </div>
         </div>
 
+        <!-- Cost Calculator Section -->
+        <div id="cost-calculator" class="utc_calc">
+          <div class="container">
+            <div class="pricing-intro align-center wow fadeIn">
+              <h2>Estimate your operating costs</h2>
+              <p class="description-text">
+                OpenUTM pricing is usage-based: you pay as you use. Pick your
+                operation type and weekly flight volume to get an indicative
+                estimate of your operating costs.
+              </p>
+            </div>
+            <div class="calc-card">
+              <div class="row">
+                <div class="col-md-4 col-sm-12">
+                  <div class="calc-field">
+                    <label for="calc-operation">Operation type</label>
+                    <select id="calc-operation" class="calc-input">
+                      <option value="" selected>Select operation type</option>
+                      <option value="vlos">Simple VLOS</option>
+                      <option value="evlos">Specialized VLOS (EVLOS)</option>
+                      <option
+                        value="bvlos"
+                        disabled
+                        title="Coming soon — contact us for a custom BVLOS quote"
+                      >
+                        Complex/BVLOS (coming soon)
+                      </option>
+                    </select>
+                    <small class="calc-hint">
+                      Complex/BVLOS pricing is coming soon.
+                    </small>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                  <div class="calc-field">
+                    <label for="calc-flights">Flights per week</label>
+                    <div class="calc-slider">
+                      <input
+                        type="range"
+                        id="calc-flights"
+                        min="0"
+                        max="1000"
+                        step="10"
+                        value="100"
+                      />
+                      <output id="calc-flights-value" for="calc-flights">100</output>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                  <div class="calc-field">
+                    <label for="calc-currency">Currency</label>
+                    <select id="calc-currency" class="calc-input">
+                      <option value="" selected>Loading currencies…</option>
+                    </select>
+                    <small id="calc-rate-note" class="calc-hint">
+                      Live rates via Frankfurter (ECB).
+                    </small>
+                  </div>
+                </div>
+              </div>
+              <div class="calc-result">
+                <div class="calc-result-main">
+                  <span id="calc-weekly" class="calc-amount">—</span>
+                  <span class="calc-per">per week</span>
+                </div>
+                <div class="calc-result-sub">
+                  <span id="calc-monthly">≈ — per month</span>
+                  <span id="calc-eur" class="calc-eur-ref"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div id="verification" class="hero-verification">
           <div class="container">
             <div class="hero-inner">
@@ -713,6 +788,8 @@
     <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="assets/js/plugins.js"></script>
     <script type="text/javascript" src="assets/js/custom.js"></script>
+    <script type="text/javascript" src="assets/js/currencyService.js"></script>
+    <script type="text/javascript" src="assets/js/cost-calculator.js"></script>
     <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
   </body>
 </html>
