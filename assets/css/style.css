@@ -2692,30 +2692,25 @@ ul#countdown li {
   padding: 3px 10px;
 }
 
-.rate-kes {
+.rate-main {
+  display: block;
   font-family: "DM Mono", monospace;
   font-size: 15px;
   font-weight: 500;
-  color: #364655;
 }
 
-.rate-kes-sub {
+.rate-sub {
   font-family: "DM Sans", sans-serif;
   font-size: 12px;
   color: #8a919c;
   margin-top: 4px;
+  line-height: 1.45;
 }
 
-.price-eq {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.price-line {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
+/* Sub-line amounts stay small and muted next to the main rate */
+.rate-sub .price-amount {
+  font-size: 12px;
+  color: #5b6472;
 }
 
 .price-amount {
@@ -2730,28 +2725,13 @@ ul#countdown li {
   font-size: 16px;
 }
 
-.price-secondary {
-  font-size: 13px;
-  color: #8a919c;
-}
-
 .overage {
   margin-top: 8px;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
 }
 
-.overage-kes {
-  font-family: "DM Mono", monospace;
+.overage .price-amount {
   font-size: 12px;
   color: #5b6472;
-}
-
-.overage-eq {
-  font-family: "DM Mono", monospace;
-  font-size: 12px;
-  color: #8a919c;
 }
 
 /* Footnote under the table */
@@ -2759,7 +2739,7 @@ ul#countdown li {
 .pricing-footnote {
   max-width: 1080px;
   margin: 16px auto 0;
-  font-family: "DM Sans", sans-serif;
+  font-family: "DM Mono", sans-serif;
   font-size: 12px;
   color: #8a919c;
   line-height: 1.6;
@@ -2772,6 +2752,7 @@ ul#countdown li {
 /* Commercial notes */
 
 .pricing-notes {
+  font-family: "DM Mono", sans-serif;
   max-width: 1080px;
   margin: 32px auto 0;
   padding: 28px 30px 24px;
@@ -2795,7 +2776,7 @@ ul#countdown li {
 }
 
 .pricing-notes li {
-  font-family: "DM Sans", sans-serif;
+  font-family: "DM Mono", sans-serif;
   font-size: 14px;
   line-height: 1.6;
   color: #373a3c;

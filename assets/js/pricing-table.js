@@ -1,8 +1,7 @@
 /*-----------------------------------
   OpenUTM Pricing Table
-  KES is the quoted/billed currency.
-  USD, EUR and other equivalents convert
-  live from the EUR base via Frankfurter
+  Prices anchor on EUR and convert live
+  to the selected currency via Frankfurter
   (ECB reference rates).
 ------------------------------------*/
 
@@ -11,21 +10,15 @@
 
   var CURRENCY_KEY = "openutm_pricing_currency";
   var DEFAULT_CURRENCY = "USD";
-  /* Secondary (reference) currency shown alongside the selected one.
-     EUR is the conversion base; fall back to USD when EUR is primary. */
-  var SECONDARY_FALLBACK = "EUR";
 
   var currencyEl = document.getElementById("pricing-currency");
   var rateNoteEl = document.getElementById("pricing-rate-note");
+  var rateHeaderEl = document.getElementById("pricing-rate-header");
   var priceAmounts = document.querySelectorAll(".price-amount");
 
   var rates = null;
   var rateDate = null;
   var ratesLive = false;
-
-  function getSecondaryCode(primary) {
-    return primary === "EUR" ? "USD" : SECONDARY_FALLBACK;
-  }
 
   function renderPrice(el, eurAmount, code) {
     var converted = currencyService.convert(eurAmount, code, rates);
@@ -42,17 +35,16 @@
     if (!currencyEl || !priceAmounts.length) return;
 
     var primaryCode = currencyEl.value || DEFAULT_CURRENCY;
-    var secondaryCode = getSecondaryCode(primaryCode);
+
+    /* Keep the rate-column header in sync with the selected currency */
+    if (rateHeaderEl) {
+      rateHeaderEl.textContent = "Quoted Rate (" + primaryCode + ")";
+    }
 
     priceAmounts.forEach(function (el) {
       var eur = parseFloat(el.getAttribute("data-eur"));
       if (isNaN(eur)) return;
-      if (el.classList.contains("price-primary")) {
-        renderPrice(el, eur, primaryCode);
-      } else {
-        /* price-secondary and overage-eq use the secondary currency */
-        renderPrice(el, eur, secondaryCode);
-      }
+      renderPrice(el, eur, primaryCode);
     });
   }
 

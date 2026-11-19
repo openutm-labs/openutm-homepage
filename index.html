@@ -148,13 +148,13 @@
           <div class="container">
             <div class="pricing-intro">
               <div class="flex-intro align-center wow fadeIn">
-                <h2>Pricing for Kenyan operators</h2>
+                <h2>Simple, transparent pricing</h2>
               </div>
                 <p>
-                  OpenUTM pricing for Kenyan-registered operations. The rates below
+                  OpenUTM pricing for commercial drone operations. The rates below
                   cover Visual Line of Sight (VLOS) and Extended VLOS (EVLOS) missions.
                   Beyond Visual Line of Sight (BVLOS) is quoted separately —
-                  <a href="https://discord.gg/dnRxpZdd9a">contact us</a> for a custom BVLOS proposal.
+                  <a href="#contactForm">contact us</a> for a custom BVLOS proposal.
                 </p>
             </div>
 
@@ -175,8 +175,7 @@
                 <thead>
                   <tr>
                     <th scope="col">Tier / Component</th>
-                    <th scope="col">Quoted Rate (KES)</th>
-                    <th scope="col">Approx. Equivalent*</th>
+                    <th scope="col" id="pricing-rate-header">Quoted Rate</th>
                     <th scope="col">Flight Allowance &amp; Overage</th>
                     <th scope="col">Seats &amp; Aircraft Scope</th>
                     <th scope="col">Ideal For</th>
@@ -187,27 +186,15 @@
                     <td data-label="Tier / Component">
                       <div class="tier-name">Pay-As-You-Go</div>
                     </td>
-                    <td data-label="Quoted Rate (KES)">
-                      <div class="rate-kes">30 KES / flight</div>
-                      <div class="rate-kes-sub">Min. 1,500 KES = 50 flights</div>
-                    </td>
-                    <td data-label="Approx. Equivalent">
-                      <div class="price-eq">
-                        <div class="price-line">
-                          <span class="price-primary price-amount" data-eur="0.20" data-suffix="/ flight">—</span>
-                          <span class="price-secondary price-amount" data-eur="0.20" data-suffix="/ flight">—</span>
-                        </div>
-                        <div class="price-line">
-                          <span class="price-primary price-amount" data-eur="10" data-suffix="min.">—</span>
-                          <span class="price-secondary price-amount" data-eur="10" data-suffix="min.">—</span>
-                        </div>
-                      </div>
+                    <td data-label="Quoted Rate">
+                      <div class="rate-main price-amount price-primary" data-eur="0.20" data-suffix="/ flight">—</div>
+                      <div class="rate-sub">Min. <span class="price-amount price-primary" data-eur="10">—</span> · 50 flights</div>
                     </td>
                     <td data-label="Flight Allowance & Overage">
                       Pay per flight (bundle never expires)
                     </td>
                     <td data-label="Seats & Aircraft Scope">
-                      1 pilot account, standard telemetry
+                      1 pilot account
                     </td>
                     <td data-label="Ideal For">
                       Occasional freelance RPL pilots &amp; compliance testing
@@ -217,68 +204,42 @@
                     <td data-label="Tier / Component">
                       <div class="tier-name">Solo Pilot Pro</div>
                     </td>
-                    <td data-label="Quoted Rate (KES)">
-                      <div class="rate-kes">2,789 KES / year</div>
-                      <div class="rate-kes-sub">~232 KES / mo equivalent</div>
-                    </td>
-                    <td data-label="Approx. Equivalent">
-                      <div class="price-eq">
-                        <div class="price-line">
-                          <span class="price-primary price-amount" data-eur="20" data-suffix="/ year">—</span>
-                          <span class="price-secondary price-amount" data-eur="20" data-suffix="/ year">—</span>
-                        </div>
-                        <div class="price-line">
-                          <span class="price-primary price-amount" data-eur="1.6667" data-suffix="/ mo">—</span>
-                          <span class="price-secondary price-amount" data-eur="1.6667" data-suffix="/ mo">—</span>
-                        </div>
-                      </div>
+                    <td data-label="Quoted Rate">
+                      <div class="rate-main price-amount price-primary" data-eur="20" data-suffix="/ year">—</div>
+                      <div class="rate-sub">≈ <span class="price-amount price-primary" data-eur="1.6667" data-suffix="/ mo">—</span></div>
                     </td>
                     <td data-label="Flight Allowance & Overage">
                       Up to 25 flights / month (300/yr)
                       <div class="overage">
-                        <span class="overage-kes">30 KES overage</span>
-                        <span class="overage-eq price-amount" data-eur="0.20" data-suffix="/ flight overage">—</span>
+                        <span class="overage-amount price-amount price-primary" data-eur="0.20" data-suffix="/ flight overage">—</span>
                       </div>
                     </td>
                     <td data-label="Seats & Aircraft Scope">
                       1 individual pilot seat
                     </td>
                     <td data-label="Ideal For">
-                      Individual pilots operating within the 2,789 KES/yr market ceiling
+                      Individual pilots / micro-SMEs
                     </td>
                   </tr>
                   <tr class="pricing-tier pricing-tier--fleet">
                     <td data-label="Tier / Component">
                       <div class="tier-name">Commercial Fleet &amp; OCC</div>
                     </td>
-                    <td data-label="Quoted Rate (KES)">
-                      <div class="rate-kes">100,000 KES / year</div>
-                      <div class="rate-kes-sub">or 10,000 KES / month</div>
-                    </td>
-                    <td data-label="Approx. Equivalent">
-                      <div class="price-eq">
-                        <div class="price-line">
-                          <span class="price-primary price-amount" data-eur="699" data-suffix="/ year">—</span>
-                          <span class="price-secondary price-amount" data-eur="699" data-suffix="/ year">—</span>
-                        </div>
-                        <div class="price-line">
-                          <span class="price-primary price-amount" data-eur="70" data-suffix="/ mo">—</span>
-                          <span class="price-secondary price-amount" data-eur="70" data-suffix="/ mo">—</span>
-                        </div>
-                      </div>
+                    <td data-label="Quoted Rate">
+                      <div class="rate-main price-amount price-primary" data-eur="699" data-suffix="/ year">—</div>
+                      <div class="rate-sub">or <span class="price-amount price-primary" data-eur="70" data-suffix="/ month">—</span></div>
                     </td>
                     <td data-label="Flight Allowance & Overage">
                       Up to 450 flights / month (5,400/yr)
                       <div class="overage">
-                        <span class="overage-kes">25 KES overage</span>
-                        <span class="overage-eq price-amount" data-eur="0.175" data-suffix="/ flight overage">—</span>
+                        <span class="overage-amount price-amount price-primary" data-eur="0.175" data-suffix="/ flight overage">—</span>
                       </div>
                     </td>
                     <td data-label="Seats & Aircraft Scope">
-                      Up to 5 pilots, Operations Center (OCC) view, multi-aircraft fleet (DJI &amp; ARACE Griffin Pro)
+                      Up to 5 pilots, Operations Center (OCC) view
                     </td>
                     <td data-label="Ideal For">
-                      Operators running multi-aircraft fleets (e.g., 2× DJI + 2× ARACE Griffin Pro) &amp; an OCC
+                      Operators running multi-aircraft fleets &amp; an OCC
                     </td>
                   </tr>
                   <tr class="pricing-tier pricing-tier--custom">
@@ -286,20 +247,12 @@
                       <div class="tier-name">Custom OCC &amp; SDK Integration</div>
                       <div class="tier-tag">Optional</div>
                     </td>
-                    <td data-label="Quoted Rate (KES)">
-                      <div class="rate-kes">50,000 KES</div>
-                      <div class="rate-kes-sub">One-time setup</div>
-                    </td>
-                    <td data-label="Approx. Equivalent">
-                      <div class="price-eq">
-                        <div class="price-line">
-                          <span class="price-primary price-amount" data-eur="350" data-suffix="one-time">—</span>
-                          <span class="price-secondary price-amount" data-eur="350" data-suffix="one-time">—</span>
-                        </div>
-                      </div>
+                    <td data-label="Quoted Rate">
+                      <div class="rate-main price-amount price-primary" data-eur="350">—</div>
+                      <div class="rate-sub">One-time setup</div>
                     </td>
                     <td data-label="Flight Allowance & Overage">
-                      N/A — one-time engineering setup
+                      N/A
                     </td>
                     <td data-label="Seats & Aircraft Scope">
                       Custom API Bridge, DJI SDK &amp; Flight Spotlight / OCC telemetry link
@@ -314,10 +267,8 @@
 
             <div class="pricing-footnote">
               <p>
-                * KES is the quoted and billed currency. USD, EUR and other
-                equivalents are indicative reference rates sourced live from
-                Frankfurter (ECB) and convert from the EUR base. Overage rates
-                are quoted in KES.
+                Prices are indicative and convert live from the EUR base via
+                Frankfurter (ECB). Actual billing currency is confirmed at quote.
               </p>
             </div>
 
@@ -326,24 +277,15 @@
               <ul>
                 <li>
                   <strong>Direct India Hub Billing.</strong>
-                  Delivered and invoiced directly from our India operations center —
-                  no Irish repatriation overhead or legacy European pricing.
+                  Delivered and invoiced directly from our India operations center.
                 </li>
                 <li>
                   <strong>Taxes &amp; Withholdings.</strong>
-                  All prices are quoted exclusive of Kenyan withholding taxes,
-                  VAT/GST export adjustments, or payment gateway/bank fees.
+                  All prices are quoted exclusive of local withholding taxes, VAT/GST export adjustments, or payment gateway/bank fees.
                 </li>
                 <li>
-                  <strong>Flight Counting Note.</strong>
-                  Missions are counted per authorized flight operation regardless of
-                  aircraft endurance — covering both short-range DJI sorties and
-                  long-endurance ARACE Griffin Pro missions up to the monthly cap.
-                </li>
-                <li>
-                  <strong>Scope.</strong>
-                  VLOS and EVLOS operations only. BVLOS is quoted separately —
-                  <a href="https://discord.gg/dnRxpZdd9a">contact us</a> for a custom proposal.
+                  <strong>Flight Counting</strong>
+                  Missions are counted per authorized flight operation regardless of aircraft endurance covering both short-range sorties and long-endurance missions up to the monthly cap.
                 </li>
               </ul>
             </div>

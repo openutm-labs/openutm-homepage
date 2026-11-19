@@ -17,7 +17,6 @@
     { code: "AUD", name: "Australian Dollar", flag: "🇦🇺", frankfurter: true, fallback: 1.65 },
     { code: "CAD", name: "Canadian Dollar", flag: "🇨🇦", frankfurter: true, fallback: 1.48 },
     { code: "CHF", name: "Swiss Franc", flag: "🇨🇭", frankfurter: true, fallback: 0.95 },
-    { code: "CNY", name: "Chinese Yuan", flag: "🇨🇳", frankfurter: true, fallback: 7.8 },
     { code: "HKD", name: "Hong Kong Dollar", flag: "🇭🇰", frankfurter: true, fallback: 8.45 },
     { code: "NZD", name: "New Zealand Dollar", flag: "🇳🇿", frankfurter: true, fallback: 1.8 },
     { code: "SEK", name: "Swedish Krona", flag: "🇸🇪", frankfurter: true, fallback: 11.3 },
