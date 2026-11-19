@@ -2542,48 +2542,56 @@ ul#countdown li {
   }
 }
 
-/*--------- 10. Cost Calculator ---------*/
+/*--------- 10. Pricing Table ---------*/
 
-.utc_calc {
+.utc_pricing {
   padding: 100px 0;
   background: #f3f3f5;
 }
 
-.utc_calc .pricing-intro {
+.utc_pricing .pricing-intro {
   padding-bottom: 20px;
 }
 
-.utc_calc .calc-card {
-  background: #ffffff;
-  border-radius: 2px;
-  padding: 40px 40px 30px 40px;
-  box-shadow: 0 10px 40px rgba(15, 136, 254, 0.08);
+/* Toolbar (currency selector + rate note) */
+
+.pricing-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
   max-width: 1080px;
-  margin: 0 auto;
+  margin: 0 auto 24px;
+  padding: 18px 24px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 24px rgba(15, 136, 254, 0.06);
 }
 
-.utc_calc .calc-field {
-  margin-bottom: 25px;
+.pricing-currency-field {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
-.utc_calc .calc-field > label {
-  display: block;
+.pricing-currency-field > label {
   font-family: "DM Mono", monospace;
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   color: #004199;
-  margin-bottom: 10px;
+  margin: 0;
 }
 
-.utc_calc .calc-input {
+.pricing-currency-select {
   display: block;
-  width: 100%;
-  height: 48px;
-  padding: 0 14px;
+  height: 44px;
+  min-width: 240px;
+  padding: 0 36px 0 14px;
   font-family: "DM Sans", sans-serif;
-  font-size: 16px;
+  font-size: 15px;
   color: #373a3c;
   background-color: #f3f3f5;
   border: 1px solid #e0e4ea;
@@ -2592,142 +2600,289 @@ ul#countdown li {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  cursor: pointer;
   background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2337383c' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
-  background-position: right 16px center;
-  cursor: pointer;
+  background-position: right 14px center;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-.utc_calc .calc-input:focus {
+.pricing-currency-select:focus {
   border-color: #0f88fe;
   box-shadow: 0 0 0 3px rgba(15, 136, 254, 0.15);
   background-color: #ffffff;
 }
 
-.utc_calc .calc-hint {
-  display: block;
+.pricing-rate-note {
+  font-family: "DM Sans", sans-serif;
+  font-size: 13px;
+  color: #8a919c;
+  margin: 0;
+}
+
+/* Table */
+
+.pricing-table-wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 10px 40px rgba(15, 136, 254, 0.08);
+  overflow: hidden;
+}
+
+.pricing-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.pricing-table thead th {
+  background: #004199;
+  color: #ffffff;
+  font-family: "DM Mono", monospace;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  text-align: left;
+  padding: 16px 18px;
+  vertical-align: top;
+  line-height: 1.4;
+}
+
+.pricing-table tbody tr {
+  border-bottom: 1px solid #eceff3;
+}
+
+.pricing-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.pricing-table tbody tr:nth-child(even) {
+  background: #f8f9fb;
+}
+
+.pricing-table tbody td {
+  padding: 22px 18px;
+  vertical-align: top;
+  font-family: "DM Sans", sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #373a3c;
+}
+
+.tier-name {
+  font-family: "Marcellus", serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #004199;
+}
+
+.tier-tag {
+  display: inline-block;
+  margin-top: 8px;
+  font-family: "DM Mono", monospace;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #0f88fe;
+  background: rgba(15, 136, 254, 0.1);
+  border-radius: 999px;
+  padding: 3px 10px;
+}
+
+.rate-kes {
+  font-family: "DM Mono", monospace;
+  font-size: 15px;
+  font-weight: 500;
+  color: #364655;
+}
+
+.rate-kes-sub {
   font-family: "DM Sans", sans-serif;
   font-size: 12px;
   color: #8a919c;
-  margin-top: 8px;
+  margin-top: 4px;
 }
 
-/* Flights per week slider */
-
-.utc_calc .calc-slider {
+.price-eq {
   display: flex;
-  align-items: center;
-  height: 48px;
+  flex-direction: column;
+  gap: 6px;
 }
 
-.utc_calc input[type="range"] {
-  -webkit-appearance: none;
-  appearance: none;
-  flex: 1;
-  height: 6px;
-  background: #e0e4ea;
-  border-radius: 3px;
-  outline: none;
-  cursor: pointer;
-}
-
-.utc_calc input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 20px;
-  height: 20px;
-  background: #0f88fe;
-  border: 2px solid #ffffff;
-  border-radius: 50%;
-  box-shadow: 0 2px 8px rgba(15, 136, 254, 0.45);
-  cursor: pointer;
-}
-
-.utc_calc input[type="range"]::-moz-range-thumb {
-  width: 20px;
-  height: 20px;
-  background: #0f88fe;
-  border: 2px solid #ffffff;
-  border-radius: 50%;
-  box-shadow: 0 2px 8px rgba(15, 136, 254, 0.45);
-  cursor: pointer;
-}
-
-.utc_calc input[type="range"]:focus::-webkit-slider-thumb {
-  box-shadow: 0 0 0 4px rgba(15, 136, 254, 0.2);
-}
-
-.utc_calc .calc-slider output {
-  font-family: "DM Mono", monospace;
-  font-size: 16px;
-  font-weight: 500;
-  color: #004199;
-  min-width: 56px;
-  text-align: right;
-  margin-left: 12px;
-}
-
-/* Result display */
-
-.utc_calc .calc-result {
-  border-top: 1px solid #eceff3;
-  margin-top: 10px;
-  padding-top: 25px;
-  text-align: center;
-}
-
-.utc_calc .calc-result-main {
+.price-line {
   display: flex;
-  align-items: baseline;
-  justify-content: center;
-  gap: 10px;
+  flex-direction: column;
+  gap: 2px;
 }
 
-.utc_calc .calc-amount {
+.price-amount {
   font-family: "DM Mono", monospace;
-  font-size: 40px;
-  font-weight: 500;
-  color: #004199;
-  letter-spacing: -0.5px;
-}
-
-.utc_calc .calc-per {
-  font-family: "DM Sans", sans-serif;
   font-size: 15px;
-  color: #8a919c;
+  font-weight: 500;
+  white-space: nowrap;
 }
 
-.utc_calc .calc-result-sub {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin-top: 10px;
-  font-family: "DM Sans", sans-serif;
-  font-size: 14px;
-  color: #5b6472;
+.price-primary {
+  color: #004199;
+  font-size: 16px;
 }
 
-.utc_calc .calc-eur-ref {
-  font-family: "DM Mono", monospace;
+.price-secondary {
   font-size: 13px;
   color: #8a919c;
 }
 
-/* Media Queries */
+.overage {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.overage-kes {
+  font-family: "DM Mono", monospace;
+  font-size: 12px;
+  color: #5b6472;
+}
+
+.overage-eq {
+  font-family: "DM Mono", monospace;
+  font-size: 12px;
+  color: #8a919c;
+}
+
+/* Footnote under the table */
+
+.pricing-footnote {
+  max-width: 1080px;
+  margin: 16px auto 0;
+  font-family: "DM Sans", sans-serif;
+  font-size: 12px;
+  color: #8a919c;
+  line-height: 1.6;
+}
+
+.pricing-footnote p {
+  margin: 0;
+}
+
+/* Commercial notes */
+
+.pricing-notes {
+  max-width: 1080px;
+  margin: 32px auto 0;
+  padding: 28px 30px 24px;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 6px 24px rgba(15, 136, 254, 0.06);
+  border-left: 4px solid #0f88fe;
+}
+
+.pricing-notes h4 {
+  font-family: "Marcellus", serif;
+  font-size: 18px;
+  color: #004199;
+  margin: 0 0 14px;
+}
+
+.pricing-notes ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pricing-notes li {
+  font-family: "DM Sans", sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #373a3c;
+  padding: 11px 0;
+  border-bottom: 1px solid #f1f3f6;
+}
+
+.pricing-notes li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.pricing-notes strong {
+  color: #004199;
+  font-weight: 600;
+}
+
+.pricing-notes a {
+  color: #0f88fe;
+  text-decoration: underline;
+}
+
+/* Responsive: stacked cards on tablet/mobile */
+
+@media (max-width: 900px) {
+  .pricing-table thead {
+    display: none;
+  }
+
+  .pricing-table,
+  .pricing-table tbody,
+  .pricing-table tr,
+  .pricing-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .pricing-table tr {
+    padding: 20px 20px 22px;
+    border-bottom: 1px solid #eceff3;
+  }
+
+  .pricing-table tbody tr:last-child {
+    border-bottom: none;
+  }
+
+  .pricing-table td {
+    padding: 10px 0;
+    border: none;
+  }
+
+  .pricing-table td[data-label]::before {
+    content: attr(data-label);
+    display: block;
+    font-family: "DM Mono", monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #004199;
+    margin-bottom: 5px;
+  }
+
+  .pricing-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .pricing-currency-field {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .pricing-currency-select {
+    min-width: 0;
+    width: 100%;
+  }
+}
 
 @media (max-width: 768px) {
-  .utc_calc {
+  .utc_pricing {
     padding: 70px 0;
   }
 
-  .utc_calc .calc-card {
-    padding: 30px 20px 20px 20px;
-  }
-
-  .utc_calc .calc-amount {
-    font-size: 30px;
+  .pricing-notes {
+    padding: 22px 18px;
   }
 }
 

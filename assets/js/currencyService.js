@@ -17,6 +17,7 @@
     { code: "AUD", name: "Australian Dollar", flag: "🇦🇺", frankfurter: true, fallback: 1.65 },
     { code: "CAD", name: "Canadian Dollar", flag: "🇨🇦", frankfurter: true, fallback: 1.48 },
     { code: "CHF", name: "Swiss Franc", flag: "🇨🇭", frankfurter: true, fallback: 0.95 },
+    { code: "CNY", name: "Chinese Yuan", flag: "🇨🇳", frankfurter: true, fallback: 7.8 },
     { code: "HKD", name: "Hong Kong Dollar", flag: "🇭🇰", frankfurter: true, fallback: 8.45 },
     { code: "NZD", name: "New Zealand Dollar", flag: "🇳🇿", frankfurter: true, fallback: 1.8 },
     { code: "SEK", name: "Swedish Krona", flag: "🇸🇪", frankfurter: true, fallback: 11.3 },
@@ -37,6 +38,8 @@
     { code: "HUF", name: "Hungarian Forint", flag: "🇭🇺", frankfurter: true, fallback: 395 },
     { code: "CZK", name: "Czech Koruna", flag: "🇨🇿", frankfurter: true, fallback: 25.2 },
     { code: "ILS", name: "Israeli Shekel", flag: "🇮🇱", frankfurter: true, fallback: 4.0 },
+    { code: "ISK", name: "Icelandic Krona", flag: "🇮🇸", frankfurter: true, fallback: 150 },
+    { code: "RON", name: "Romanian Leu", flag: "🇷🇴", frankfurter: true, fallback: 5.0 },
     { code: "CLP", name: "Chilean Peso", flag: "🇨🇱", frankfurter: false, fallback: 1030 },
     { code: "PHP", name: "Philippine Peso", flag: "🇵🇭", frankfurter: true, fallback: 62 },
     { code: "AED", name: "UAE Dirham", flag: "🇦🇪", frankfurter: false, fallback: 3.97 },
@@ -50,7 +53,7 @@
   var CACHE_TTL_MS = 12 * 60 * 60 * 1000; /* 12 hours */
   var API_ENDPOINTS = [
     "https://api.frankfurter.dev/v1/latest?base=" + BASE,
-    "https://api.frankfurter.app/latest?from=" + BASE
+    "https://api.frankfurter.dev/v1/latest?from=" + BASE
   ];
 
   /* ------- Cache helpers (localStorage) ------- */
@@ -68,11 +71,11 @@
     }
   }
 
-  function writeCache(rates) {
+  function writeCache(rates, date) {
     try {
       global.localStorage.setItem(
         CACHE_KEY,
-        JSON.stringify({ rates: rates, fetchedAt: Date.now() })
+        JSON.stringify({ rates: rates, date: date, fetchedAt: Date.now() })
       );
     } catch (e) {
       /* storage unavailable - cache simply not persisted */
@@ -99,13 +102,13 @@
         Object.keys(cached.rates).forEach(function (code) {
           merged[code] = cached.rates[code];
         });
-        resolve({ rates: merged, live: true, source: "cached" });
+        resolve({ rates: merged, date: cached.date || null, live: true, source: "cached" });
         return;
       }
 
       var attempt = function (index) {
         if (index >= API_ENDPOINTS.length) {
-          resolve({ rates: merged, live: false, source: "fallback" });
+          resolve({ rates: merged, date: null, live: false, source: "fallback" });
           return;
         }
         fetch(API_ENDPOINTS[index])
@@ -121,11 +124,11 @@
                 live[c.code] = data.rates[c.code];
               }
             });
-            writeCache(live);
+            writeCache(live, data.date || null);
             Object.keys(live).forEach(function (code) {
               merged[code] = live[code];
             });
-            resolve({ rates: merged, live: true, source: "frankfurter" });
+            resolve({ rates: merged, date: data.date || null, live: true, source: "frankfurter" });
           })
           .catch(function () {
             attempt(index + 1);
@@ -171,6 +174,20 @@
     return format(amountInEur, "EUR");
   }
 
+  /* Format an amount using a currency's native minor-unit precision
+     (e.g. 2 decimals for USD/EUR, 0 for JPY/KRW). Used by the pricing
+     table where the calculator's < 1 -> 4-decimal rule is undesirable. */
+  function formatPrice(amount, code) {
+    try {
+      return new Intl.NumberFormat(undefined, {
+        style: "currency",
+        currency: code
+      }).format(amount);
+    } catch (e) {
+      return code + " " + amount.toFixed(2);
+    }
+  }
+
   /* Populate a <select> with all supported currencies. */
   function populateSelect(selectEl, selectedCode) {
     if (!selectEl) return;
@@ -192,6 +209,7 @@
     convert: convert,
     format: format,
     formatEur: formatEur,
+    formatPrice: formatPrice,
     populateSelect: populateSelect
   };
 })(window);
